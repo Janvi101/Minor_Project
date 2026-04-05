@@ -70,7 +70,7 @@ const DashboardLayout = () => {
                         </div>
                         <div>
                             <h1 className="font-bold text-lg" style={{ margin: 0, color: 'var(--text-main)' }}>RTWQMS</h1>
-                            <p className="text-xs" style={{ margin: 0, color: 'var(--text-muted)' }}>Indore Municipal Corporation</p>
+
                         </div>
                     </div>
                     <button

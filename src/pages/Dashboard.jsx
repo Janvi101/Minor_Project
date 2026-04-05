@@ -10,6 +10,7 @@ const mockChartData = [
 ];
 
 const Dashboard = () => {
+
     return (
         <div>
 
@@ -45,6 +46,15 @@ const Dashboard = () => {
                         <h2 style={{ fontSize: '2rem', margin: 0, color: 'var(--accent-warning)' }}>12</h2>
                         <span style={{ color: 'var(--accent-warning)', fontWeight: 600 }}>Pending</span>
                     </div>
+                </div>
+            </div>
+
+            {/* Map Placeholder */}
+            <div className="glass p-6" style={{ marginBottom: '2rem', height: '400px', display: 'flex', flexDirection: 'column' }}>
+                <h3 style={{ marginBottom: '1rem' }}>Live Monitoring Map</h3>
+                <div style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.02)', borderRadius: '8px', border: '2px dashed var(--border-color)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '0.5rem' }}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--text-muted)' }}><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon><line x1="9" y1="3" x2="9" y2="18"></line><line x1="15" y1="6" x2="15" y2="21"></line></svg>
+                    <p className="text-muted" style={{ margin: 0 }}>Map Integration Area</p>
                 </div>
             </div>
 

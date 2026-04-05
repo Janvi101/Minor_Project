@@ -1,16 +1,35 @@
-# React + Vite
+# RTWQMS - Real-Time Water Quality Monitoring System (Delhi)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the frontend dashboard for the **Online Real-Time Survey and Monitoring of Water Bodies in Delhi (RTWQMS)** project. It provides real-time visualization of water quality metrics, pollution alerts, AI predictions, and public complaints across various monitored water bodies in Delhi.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Real-Time KPIs**: Monitor the total number of water bodies, safe zones (Class A & B), polluted areas, and public complaints.
+- **Interactive Dashboard**: View historical and real-time trends of BOD levels and other crucial water parameters.
+- **Alert System**: Get instant notifications about sudden spikes in pollution or scheduled maintenance (e.g., Yamuna River, Okhla Water Treatment Plant).
+- **AI Analytics**: Predictive modeling to forecast potential pollution events and determine root causes.
+- **Internal Operations**: Tools for worker task assignment and lab report management.
+- **Public Complaint Portal**: Track and manage citizen-reported issues about water bodies like Sanjay Lake.
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React 19**
+- **Vite**
+- **Tailwind-like Custom Glassmorphism CSS**
+- **Lucide-React** (Icons)
+- **Recharts** (Data Visualization)
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+## Design Aesthetics
+The project uses a custom-built sleek "Glassmorphism" design system for a highly modern, dashboard-centric look, prioritizing clean analytics and immediate visual feedback for critical alerts.
