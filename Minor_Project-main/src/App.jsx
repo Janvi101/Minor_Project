@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import DashboardLayout from './layouts/DashboardLayout'
 import Dashboard from './pages/Dashboard'
 import './index.css'
+import Complaints from './pages/Complaints';
 
 // Placeholder pages
 const AIAnalytics = () => (
@@ -16,32 +17,6 @@ const AIAnalytics = () => (
   </div>
 );
 
-const Complaints = () => (
-  <div className="glass p-6">
-    <h2 className="mb-4">Public Complaint Portal</h2>
-    <p className="text-muted mb-4">View and track citizen reports of water pollution.</p>
-    <div style={{ overflowX: 'auto', width: '100%' }}>
-      <table className="w-full text-left" style={{ borderCollapse: 'collapse', minWidth: '600px' }}>
-        <thead>
-          <tr style={{ borderBottom: '2px solid var(--border-color)' }}>
-          <th className="p-3 text-sm font-medium text-muted">Date</th>
-          <th className="p-3 text-sm font-medium text-muted">Location</th>
-          <th className="p-3 text-sm font-medium text-muted">Issue</th>
-          <th className="p-3 text-sm font-medium text-muted">Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr style={{ borderBottom: '1px solid var(--border-color)' }}>
-          <td className="p-3 text-sm">Today, 10:30 AM</td>
-          <td className="p-3 text-sm font-medium">Sirpur Lake</td>
-          <td className="p-3 text-sm text-muted">Foul smell and dead fish</td>
-          <td className="p-3 text-sm"><span className="text-danger font-medium">Pending Investigation</span></td>
-        </tr>
-      </tbody>
-    </table>
-    </div>
-  </div>
-);
 
 const Alerts = () => (
   <div className="glass p-6">
