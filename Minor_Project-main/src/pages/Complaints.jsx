@@ -26,6 +26,11 @@ const Complaints = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  const handleLocationClick = (location) => {
+    const query = encodeURIComponent(`${location} water body Indore Madhya Pradesh`);
+    window.open(`https://www.google.com/maps/search/?api=1&query=${query}`, '_blank');
+  };
+
   // Submit form
  const handleSubmit = async (e) => {
   e.preventDefault();
@@ -113,7 +118,7 @@ const Complaints = () => {
                 {/* 👇 Clickable Location */}
                 <td className="p-3">
                   <span
-                    style={{ color: 'blue', cursor: 'pointer' }}
+                    style={{ color: 'blue', cursor: 'pointer', textDecoration: 'underline' }}
                     onClick={() => handleLocationClick(c.location)}
                   >
                     {c.location}

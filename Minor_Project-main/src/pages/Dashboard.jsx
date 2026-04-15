@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import LeafletMap from '../components/LeafletMap';
 
 const mockChartData = [
     { name: 'Mon', bodies: 140, safe: 80, polluted: 30 },
@@ -10,13 +11,18 @@ const mockChartData = [
 ];
 
 const Dashboard = () => {
+    const [activeFilter, setActiveFilter] = useState('all');
+
+    const handleCardClick = (filter) => {
+        setActiveFilter(filter);
+    };
 
     return (
         <div>
 
             {/* KPI Cards */}
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.5rem', marginBottom: '2rem' }}>
-                <div className="glass p-6 glass-hover">
+                <div className="glass p-6 glass-hover" onClick={() => handleCardClick('all')} style={{ cursor: 'pointer' }}>
                     <p className="text-muted" style={{ marginBottom: '0.5rem' }}>Total Water Bodies Monitored</p>
                     <div className="flex items-center justify-between">
                         <h2 style={{ fontSize: '2rem', margin: 0 }}>142</h2>
@@ -24,7 +30,7 @@ const Dashboard = () => {
                     </div>
                 </div>
 
-                <div className="glass p-6 glass-hover">
+                <div className="glass p-6 glass-hover" onClick={() => handleCardClick('safe')} style={{ cursor: 'pointer' }}>
                     <p className="text-muted" style={{ marginBottom: '0.5rem' }}>Safe to Use (Class A & B)</p>
                     <div className="flex items-center justify-between">
                         <h2 style={{ fontSize: '2rem', margin: 0, color: 'var(--accent-safe)' }}>84</h2>
@@ -32,7 +38,7 @@ const Dashboard = () => {
                     </div>
                 </div>
 
-                <div className="glass p-6 glass-hover">
+                <div className="glass p-6 glass-hover" onClick={() => handleCardClick('polluted')} style={{ cursor: 'pointer' }}>
                     <p className="text-muted" style={{ marginBottom: '0.5rem' }}>Polluted / Danger Zones</p>
                     <div className="flex items-center justify-between">
                         <h2 style={{ fontSize: '2rem', margin: 0, color: 'var(--accent-danger)' }}>27</h2>
@@ -40,7 +46,7 @@ const Dashboard = () => {
                     </div>
                 </div>
 
-                <div className="glass p-6 glass-hover">
+                <div className="glass p-6 glass-hover" onClick={() => handleCardClick('complaints')} style={{ cursor: 'pointer' }}>
                     <p className="text-muted" style={{ marginBottom: '0.5rem' }}>New Public Complaints</p>
                     <div className="flex items-center justify-between">
                         <h2 style={{ fontSize: '2rem', margin: 0, color: 'var(--accent-warning)' }}>12</h2>
@@ -51,10 +57,14 @@ const Dashboard = () => {
 
             {/* Map Placeholder */}
             <div className="glass p-6" style={{ marginBottom: '2rem', height: '400px', display: 'flex', flexDirection: 'column' }}>
-                <h3 style={{ marginBottom: '1rem' }}>Live Monitoring Map</h3>
-                <div style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.02)', borderRadius: '8px', border: '2px dashed var(--border-color)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '0.5rem' }}>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--text-muted)' }}><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon><line x1="9" y1="3" x2="9" y2="18"></line><line x1="15" y1="6" x2="15" y2="21"></line></svg>
-                    <p className="text-muted" style={{ margin: 0 }}>Map Integration Area</p>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+                    <h3 style={{ margin: 0 }}>Live Monitoring Map</h3>
+                    <span style={{ fontSize: '0.875rem', color: 'var(--text-muted)' }}>
+                        Showing: {activeFilter.charAt(0).toUpperCase() + activeFilter.slice(1)} ({activeFilter === 'all' ? 142 : activeFilter === 'safe' ? 84 : activeFilter === 'polluted' ? 27 : 12})
+                    </span>
+                </div>
+                <div style={{ flex: 1, borderRadius: '8px', overflow: 'hidden' }}>
+                    <LeafletMap filter={activeFilter} />
                 </div>
             </div>
 
